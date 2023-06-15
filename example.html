@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+.animate-text-shadow {
+  position: relative;
+  display: inline-block;
+  font-size: 24px; /* Adjust the font size as needed */
+}
+
+.animate-text-shadow.animate {
+  animation: shadow-animation 0.5s forwards;
+  animation-fill-mode: both;
+}
+
+@keyframes shadow-animation {
+  0% {
+    text-shadow: none;
+    opacity: 1;
+  }
+  99.9% {
+    text-shadow: 0 -10px currentColor;
+    opacity: 0;
+  }
+  100% {
+    text-shadow: none;
+    opacity: 1;
+  }
+}
+
+</style>
+</head>
+<body>
+<script>
+function animateTextShadow(element) {
+  element.classList.add('animate');
+  element.addEventListener('animationend', function() {
+    element.classList.remove('animate');
+  });
+}
+</script>
+
+<span class="animate-text-shadow" onclick="animateTextShadow(this)">Your text goes here</span>
+
+</body>
+</html>
